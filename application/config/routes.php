@@ -36,10 +36,13 @@
 | This route will tell the Router what URI segments to use if those provided
 | in the URL cannot be matched to a valid route.
 |
-*/
-
-$route['default_controller'] = "welcome";
-$route['404_override'] = '';
+*/            //   () is back reference   ->   $1
+$route['topic/(:num)'] = 'topic/get/$1';
+$route['post/(:num)'] = "topic/get/$1";
+$route['topic/([a-z]+)/([a-z]+)/(\d+)'] = "$1/$2/$3";
+$route['default_controller'] = "topic/index";
+//$route['default_controller'] = "welcome";
+$route['404_override'] = 'erros/notfound';
 
 
 /* End of file routes.php */
